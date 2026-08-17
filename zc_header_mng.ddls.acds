@@ -1,0 +1,29 @@
+@AccessControl.authorizationCheck: #NOT_REQUIRED
+@EndUserText.label: 'Header Consumption View'
+@Metadata.ignorePropagatedAnnotations: true
+@Metadata.allowExtensions: true
+define root view entity ZC_Header_MNG 
+as projection on ZI_HEADER_MNG
+{
+
+
+ @ObjectModel.text.element: [ 'Auart' ]
+    key Vbeln,
+    Auart,
+    Vkorg,
+//    @Consumption.valueHelpDefinition: [{ entity: {
+//            name: 'I_SalesOrder',
+//            element: 'SalesOrganization' } } ]
+    Vtweg,
+    kunnr,
+    Netwr,
+    Waerk,
+    Erdat,
+    Erzet,
+    Ernam,
+    LastChangedat,
+    /* Associations */
+    _Customer,
+    _Item : redirected to composition child zc_item_mng   
+    
+}
